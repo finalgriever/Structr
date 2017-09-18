@@ -6,11 +6,11 @@ With Structr you can define the format of these documents within your applicatio
 
 Besides complex documents Structr can be used to parse most PHP data such as request parameters, for example you can use it to define valid values for a paging GET parameter.
 
-# Structr at Gold Republic #
+# Structr at Yellitech #
 
 This version of Structr is a fork of an end-of-life library created by gwkunze: https://github.com/gwkunze/Structr
 
-Gold republic began using analysis of Structr definitions to generate documentation for the Octopus API, and in order to facilitate that, began extending the original Structr library to track additional meta-data.
+Yellitech began using analysis of Structr definitions to generate documentation for the Octopus API, and in order to facilitate that, began extending the original Structr library to track additional meta-data.
 
 Example
 =======
