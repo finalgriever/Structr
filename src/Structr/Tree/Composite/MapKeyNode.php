@@ -87,7 +87,7 @@ class MapKeyNode extends PrototypeNode
      */
     public function setDescription($description)
     {
-        $this->setDescription($description);
+        $this->description = $description;
     }
 
     /**
