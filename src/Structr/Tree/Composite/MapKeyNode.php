@@ -73,7 +73,7 @@ class MapKeyNode extends PrototypeNode
      */
     public function getDescription()
     {
-        $description = $this->getDescription();
+        $description = $this->description;
         if(empty($description) && isset($this->_prototype)) {
             $description = $this->_prototype->getDescription();
         }
