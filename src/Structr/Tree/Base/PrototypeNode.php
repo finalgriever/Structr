@@ -31,7 +31,7 @@ abstract class PrototypeNode extends Node
     /**
      * @var \Structr\Tree\Base\Node Child node declaring type
      */
-    private $_prototype = null;
+    protected $_prototype = null;
 
     /**
      * Get the Prototype of this Node, i.e., the concrete
