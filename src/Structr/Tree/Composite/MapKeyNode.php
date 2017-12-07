@@ -62,7 +62,7 @@ class MapKeyNode extends PrototypeNode
      */
     public function description($description)
     {
-        $this->_prototype->setDescription($description);
+        $this->setDescription($description);
         return $this;
     }
 
@@ -73,7 +73,11 @@ class MapKeyNode extends PrototypeNode
      */
     public function getDescription()
     {
-        return $this->_prototype->getDescription();
+        $description = $this->getDescription();
+        if(empty($description) && isset($this->_prototype)) {
+            $description = $this->_prototype->getDescription();
+        }
+        return empty($description) ? "" : $description;
     }
 
     /**
@@ -83,7 +87,7 @@ class MapKeyNode extends PrototypeNode
      */
     public function setDescription($description)
     {
-        $this->_prototype->setDescription($description);
+        $this->setDescription($description);
     }
 
     /**
