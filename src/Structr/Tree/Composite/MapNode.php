@@ -11,6 +11,7 @@ namespace Structr\Tree\Composite;
 use Structr\Tree\Base\Node;
 
 use Structr\Exception;
+use Structr\Tree\Scalar\NullNode;
 
 class MapNode extends Node
 {
@@ -145,6 +146,12 @@ class MapNode extends Node
             if (isset($value[$key])) {
                 $return[$key] = $val->_walk($value[$key]);
             } elseif ($val->isOptional()) {
+                if(array_key_exists($key, $value)) {
+                    if(NullNode::canHaveNullValue($value)) {
+                        $return[$key] = null;
+                    }
+                    unset($value[$key]);
+                }
                 continue;
             } else {
                 $return[$key] = $val->_walk_post($val->_walk_value_unset());

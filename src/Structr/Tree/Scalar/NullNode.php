@@ -8,7 +8,9 @@
 
 namespace Structr\Tree\Scalar;
 
+use Structr\Tree\Base\Node;
 use Structr\Tree\Base\ScalarNode;
+use Structr\Tree\Composite\ChoiceNode;
 
 class NullNode extends ScalarNode
 {
@@ -18,5 +20,21 @@ class NullNode extends ScalarNode
     public function getScalarType()
     {
         return 'NULL';
+    }
+
+    /**
+     * @param Node $node
+     */
+    public static function canHaveNullValue($node)
+    {
+        if($node instanceof NullNode) {
+            return true;
+        }
+
+        if($node instanceof ChoiceNode) {
+            return $node->canHaveNullValue();
+        }
+
+        return false;
     }
 }
