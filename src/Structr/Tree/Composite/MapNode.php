@@ -145,6 +145,9 @@ class MapNode extends Node
             if (isset($value[$key])) {
                 $return[$key] = $val->_walk($value[$key]);
             } elseif ($val->isOptional()) {
+                if(array_key_exists($key, $value)) {
+                    $return[$key] = $val->_walk($value[$key]);
+                }
                 continue;
             } else {
                 $return[$key] = $val->_walk_post($val->_walk_value_unset());

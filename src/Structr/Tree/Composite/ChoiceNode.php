@@ -9,8 +9,6 @@
 namespace Structr\Tree\Composite;
 
 use Structr\Tree\Base\Node;
-
-use Structr\Tree\Composite\ChoicePrototypeNode;
 use Structr\Exception;
 
 class ChoiceNode extends Node
