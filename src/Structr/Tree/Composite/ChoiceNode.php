@@ -9,9 +9,8 @@
 namespace Structr\Tree\Composite;
 
 use Structr\Tree\Base\Node;
-
-use Structr\Tree\Composite\ChoicePrototypeNode;
 use Structr\Exception;
+use Structr\Tree\Scalar\NullNode;
 
 class ChoiceNode extends Node
 {
@@ -29,6 +28,19 @@ class ChoiceNode extends Node
     public function addAlternative($alternative)
     {
         $this->_alternatives[] = $alternative;
+    }
+
+    public function canHaveNullValue()
+    {
+        foreach($this->_alternatives as $alternative)
+        {
+            if(NullNode::canHaveNullValue($alternative))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
