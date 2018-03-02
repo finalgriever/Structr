@@ -11,6 +11,7 @@ namespace Structr\Tree\Composite;
 use Structr\Tree\Base\Node;
 
 use Structr\Exception;
+use Structr\Tree\Scalar\NullNode;
 
 class MapNode extends Node
 {

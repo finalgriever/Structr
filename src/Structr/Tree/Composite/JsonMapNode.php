@@ -46,6 +46,22 @@ class JsonMapNode extends MapNode
     public function _walk_value($value = null)
     {
         $value = Structr::json_decode($value);
+        $value = $this->_walk_post_decode($value);
         return parent::_walk_value($value);
+    }
+
+    /**
+     * Apply all post-processing callables to a value
+     *
+     * @param mixed $value The value to process
+     * @return mixed Result of all pre-processing callables
+     */
+    protected function _walk_post_decode($value)
+    {
+        foreach ($this->_post_decode as $callable) {
+            $value = call_user_func($callable, $value);
+        }
+
+        return $value;
     }
 }
